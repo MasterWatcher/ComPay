@@ -9,10 +9,11 @@
 import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
-import SwiftyJSON
+import NSObject_Rx
 
 class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
@@ -32,7 +33,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signInSilently()
         
         // Add the sign-in button.
-        view.addSubview(signInButton)
+       // view.addSubview(signInButton)
         
         // Add a UITextView to display output.
         output.frame = view.bounds
@@ -40,7 +41,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         output.isHidden = true
-        view.addSubview(output);
+       // view.addSubview(output);
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -52,8 +53,15 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             self.signInButton.isHidden = true
             self.output.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
-            listSheet2()
-           // updateSheet()
+            //SheetsServiceImpl(service:self.service).monthData()
+            
+            SheetsServiceImpl(service:self.service).monthData()
+                .bind(to: tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
+                    guard let cell = cell as? MonthCell else { return }
+                    cell.monthLabel.text = model.date
+                    cell.totalLabel.text = "\(model.value)"
+                }
+                .disposed(by: rx.disposeBag)
         }
     }
     
@@ -70,32 +78,6 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
                              delegate: self,
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
         )
-    }
-    
-    func listSheet2() {
-        let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
-        let query = GTLRSheetsQuery_SpreadsheetsValuesBatchGet.query(withSpreadsheetId: spreadsheetId)
-        query.ranges = ["A3:A", "K3:K"]
-        service.executeQuery(query,
-                             delegate: self,
-                             didFinish: #selector(displayResultWithTicket1(ticket:finishedWithObject:error:))
-        )
-    }
-    
-    @objc func displayResultWithTicket1(ticket: GTLRServiceTicket,
-                                       finishedWithObject result : GTLRObject,
-                                       error : NSError?) {
-        guard let data = result.json else {
-            return
-        }
-        let json = JSON(data)
-        let date = json["valueRanges"][0]["values"].arrayValue
-        let value = json["valueRanges"][1]["values"].arrayValue
-        
-        for i in 0..<date.count {
-            print("\(date[i]) - \(value[i])\n")
-        }
-        
     }
     
     // Process the response and display output
