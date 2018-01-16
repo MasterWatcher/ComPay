@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A3432D420067911005F100B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3432D320067911005F100B /* AppDelegate.swift */; };
-		3A3432D620067911005F100B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3432D520067911005F100B /* ViewController.swift */; };
 		3A3432D920067911005F100B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3432D720067911005F100B /* Main.storyboard */; };
 		3A3432DB20067911005F100B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3432DA20067911005F100B /* Assets.xcassets */; };
 		3A3432DE20067911005F100B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3432DC20067911005F100B /* LaunchScreen.storyboard */; };
@@ -21,6 +20,8 @@
 		3A343309200B9E9F005F100B /* SheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343308200B9E9F005F100B /* SheetsService.swift */; };
 		3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */; };
 		3A343312200BCA94005F100B /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343311200BCA94005F100B /* MonthCell.swift */; };
+		3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E4200E71E6005CE80E /* ListViewController.swift */; };
+		3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */; };
 		72CE874CF830F174BE46F61E /* Pods_ComPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959747CE1E231E3D85A106F /* Pods_ComPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +46,6 @@
 		19BB44FFB4E38FACAA434B43 /* Pods-ComPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3432D020067911005F100B /* ComPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3432D320067911005F100B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A3432D520067911005F100B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A3432D820067911005F100B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A3432DA20067911005F100B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A3432DD20067911005F100B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		3A343308200B9E9F005F100B /* SheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsService.swift; sourceTree = "<group>"; };
 		3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GTLRSheetsService+Rx.swift"; sourceTree = "<group>"; };
 		3A343311200BCA94005F100B /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		3A3DF0E4200E71E6005CE80E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		70DF8CE1C20F6C24D52FAB99 /* Pods-ComPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.release.xcconfig"; sourceTree = "<group>"; };
 		7959747CE1E231E3D85A106F /* Pods_ComPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,7 +122,7 @@
 				3A34330B200BB276005F100B /* Extensions */,
 				3A343307200928B8005F100B /* Services */,
 				3A34330A200B9FE7005F100B /* Models */,
-				3A3432D520067911005F100B /* ViewController.swift */,
+				3A3DF0E3200E71E6005CE80E /* ViewControllers */,
 				3A343311200BCA94005F100B /* MonthCell.swift */,
 				3A3432D720067911005F100B /* Main.storyboard */,
 				3A3432DA20067911005F100B /* Assets.xcassets */,
@@ -171,6 +173,15 @@
 				3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3A3DF0E3200E71E6005CE80E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A3DF0E4200E71E6005CE80E /* ListViewController.swift */,
+				3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		515C0D7D2091A4ABC1D5602C /* Frameworks */ = {
@@ -403,8 +414,9 @@
 			files = (
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
-				3A3432D620067911005F100B /* ViewController.swift in Sources */,
+				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,
 				3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */,
+				3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */,
 				3A3432D420067911005F100B /* AppDelegate.swift in Sources */,
 				3A343309200B9E9F005F100B /* SheetsService.swift in Sources */,
 			);

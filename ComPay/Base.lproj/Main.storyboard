@@ -13,7 +13,7 @@
         <!--Total-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,15 +67,74 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Total" id="ukB-yb-OqV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8XS-zV-OEd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8XS-zV-OEd">
+                            <connections>
+                                <segue destination="k3Z-xJ-HpV" kind="show" id="Ao1-2Q-vYX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="Hro-gM-Nfa" id="XDn-LA-Hir"/>
+                        <outlet property="tableView" destination="Hro-gM-Nfa" id="6tY-ZA-nOh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="29.23538230884558"/>
+        </scene>
+        <!--Add Values-->
+        <scene sceneID="XZH-Th-vVB">
+            <objects>
+                <viewController title="Add Values" id="k3Z-xJ-HpV" customClass="AddItemViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oID-5r-oc0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-Em-Vjy">
+                                <rect key="frame" x="16" y="80" width="343" height="168"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hot Water" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-4r-8hD">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cold Water" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3C-iH-5iZ">
+                                        <rect key="frame" x="0.0" y="46" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Electricity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5e-QM-hAw">
+                                        <rect key="frame" x="0.0" y="92" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-YX-9Vb">
+                                        <rect key="frame" x="0.0" y="138" width="343" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Tl-Em-Vjy" firstAttribute="top" secondItem="gPU-Df-rf2" secondAttribute="top" constant="16" id="XER-bD-L6D"/>
+                            <constraint firstItem="5Tl-Em-Vjy" firstAttribute="leading" secondItem="gPU-Df-rf2" secondAttribute="leading" constant="16" id="hBt-CC-Vch"/>
+                            <constraint firstItem="gPU-Df-rf2" firstAttribute="trailing" secondItem="5Tl-Em-Vjy" secondAttribute="trailing" constant="16" id="vUS-Kd-Fe2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gPU-Df-rf2"/>
+                    </view>
+                    <connections>
+                        <outlet property="coldWaterTextField" destination="a3C-iH-5iZ" id="6Lp-yk-2b0"/>
+                        <outlet property="electricityTextField" destination="b5e-QM-hAw" id="ZW0-8Z-LfF"/>
+                        <outlet property="hotWaterTextField" destination="Qok-4r-8hD" id="1fl-BI-tev"/>
+                        <outlet property="submitButton" destination="zRg-YX-9Vb" id="0Ly-Km-pLv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIc-Oo-Hu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="43"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eht-lx-pQY">

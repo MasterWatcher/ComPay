@@ -11,7 +11,7 @@ import GoogleSignIn
 import UIKit
 import NSObject_Rx
 
-class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class ListViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +21,6 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     private let service = GTLRSheetsService()
     let signInButton = GIDSignInButton()
-    let output = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +32,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signInSilently()
         
         // Add the sign-in button.
-       // view.addSubview(signInButton)
-        
-        // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-       // view.addSubview(output);
+        //view.addSubview(signInButton)
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -51,7 +42,6 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             self.service.authorizer = nil
         } else {
             self.signInButton.isHidden = true
-            self.output.isHidden = false
             self.service.authorizer = user.authentication.fetcherAuthorizer()
             //SheetsServiceImpl(service:self.service).monthData()
             
@@ -64,50 +54,6 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
                 .disposed(by: rx.disposeBag)
         }
     }
-    
-    // Display (in the UITextView) the names and majors of students in a sample
-    // spreadsheet:
-    // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-    func listSheet() {
-        output.text = "Getting sheet data..."
-        let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
-        let range = "TEST!A3:A"
-        let query = GTLRSheetsQuery_SpreadsheetsValuesGet
-            .query(withSpreadsheetId: spreadsheetId, range:range)
-        service.executeQuery(query,
-                             delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
-        )
-    }
-    
-    // Process the response and display output
-    @objc func displayResultWithTicket(ticket: GTLRServiceTicket,
-                                 finishedWithObject result : GTLRSheets_ValueRange,
-                                 error : NSError?) {
-        
-        if let error = error {
-            showAlert(title: "Error", message: error.localizedDescription)
-            return
-        }
-        
-        var majorsString = ""
-        let rows = result.values!
-        
-        if rows.isEmpty {
-            output.text = "No data found."
-            return
-        }
-        
-        majorsString += ""
-        for row in rows {
-            let one = row[0]
-        
-            majorsString += "\(one)\n"
-        }
-        
-        output.text = majorsString
-    }
-    
     
     func updateSheet() {
 //        let query = GTLRSheetsQuery_SpreadsheetsValuesUpdate

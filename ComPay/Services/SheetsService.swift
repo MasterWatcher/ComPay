@@ -29,6 +29,8 @@ class SheetsServiceImpl : NSObject, SheetsService {
     func monthData() -> Observable<[MonthData]> {
         let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
         let query = GTLRSheetsQuery_SpreadsheetsValuesBatchGet.query(withSpreadsheetId: spreadsheetId)
+        //query.valueRenderOption = kGTLRSheetsValueRenderOptionFormula
+      //  query.dateTimeRenderOption = kGTLRSheetsDateTimeRenderOptionSerialNumber
         query.ranges = ["A3:A", "K3:K"]
         
         return service.rx.request(withQuery: query).map() { ticket, response in
