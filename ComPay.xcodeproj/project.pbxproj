@@ -23,6 +23,14 @@
 		3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E4200E71E6005CE80E /* ListViewController.swift */; };
 		3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */; };
 		3A414229200FB46900CC9FBC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A414228200FB46900CC9FBC /* Entry.swift */; };
+		3A41422D2014FE5700CC9FBC /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41422C2014FE5700CC9FBC /* SceneCoordinator.swift */; };
+		3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41422E2014FE7600CC9FBC /* Scene.swift */; };
+		3A4142312014FEC400CC9FBC /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142302014FEC400CC9FBC /* ListViewModel.swift */; };
+		3A4142332014FEDA00CC9FBC /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */; };
+		3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142342014FF3E00CC9FBC /* SceneTransitionType.swift */; };
+		3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */; };
+		3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */; };
+		3A41423B2015005A00CC9FBC /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41423A2015005A00CC9FBC /* BindableType.swift */; };
 		72CE874CF830F174BE46F61E /* Pods_ComPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959747CE1E231E3D85A106F /* Pods_ComPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +73,14 @@
 		3A3DF0E4200E71E6005CE80E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		3A414228200FB46900CC9FBC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		3A41422C2014FE5700CC9FBC /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		3A41422E2014FE7600CC9FBC /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		3A4142302014FEC400CC9FBC /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
+		3A4142342014FF3E00CC9FBC /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
+		3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorImpl.swift; sourceTree = "<group>"; };
+		3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
+		3A41423A2015005A00CC9FBC /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		70DF8CE1C20F6C24D52FAB99 /* Pods-ComPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.release.xcconfig"; sourceTree = "<group>"; };
 		7959747CE1E231E3D85A106F /* Pods_ComPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +138,7 @@
 			children = (
 				3A3432D320067911005F100B /* AppDelegate.swift */,
 				3A34330B200BB276005F100B /* Extensions */,
+				3A41422B2014FE4500CC9FBC /* Scenes */,
 				3A343307200928B8005F100B /* Services */,
 				3A34330A200B9FE7005F100B /* Models */,
 				3A3DF0E3200E71E6005CE80E /* ViewControllers */,
@@ -181,10 +198,25 @@
 		3A3DF0E3200E71E6005CE80E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A4142302014FEC400CC9FBC /* ListViewModel.swift */,
 				3A3DF0E4200E71E6005CE80E /* ListViewController.swift */,
+				3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */,
 				3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3A41422B2014FE4500CC9FBC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3A41422C2014FE5700CC9FBC /* SceneCoordinator.swift */,
+				3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */,
+				3A41422E2014FE7600CC9FBC /* Scene.swift */,
+				3A4142342014FF3E00CC9FBC /* SceneTransitionType.swift */,
+				3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */,
+				3A41423A2015005A00CC9FBC /* BindableType.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		515C0D7D2091A4ABC1D5602C /* Frameworks */ = {
@@ -417,14 +449,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A41423B2015005A00CC9FBC /* BindableType.swift in Sources */,
+				3A41422D2014FE5700CC9FBC /* SceneCoordinator.swift in Sources */,
+				3A4142332014FEDA00CC9FBC /* AddItemViewModel.swift in Sources */,
 				3A414229200FB46900CC9FBC /* Entry.swift in Sources */,
+				3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */,
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
 				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,
 				3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */,
+				3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */,
 				3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */,
 				3A3432D420067911005F100B /* AppDelegate.swift in Sources */,
 				3A343309200B9E9F005F100B /* SheetsService.swift in Sources */,
+				3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */,
+				3A4142312014FEC400CC9FBC /* ListViewModel.swift in Sources */,
+				3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

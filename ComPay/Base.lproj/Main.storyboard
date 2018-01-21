@@ -74,6 +74,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addItemButton" destination="8XS-zV-OEd" id="nPI-PL-kUW"/>
                         <outlet property="tableView" destination="Hro-gM-Nfa" id="6tY-ZA-nOh"/>
                     </connections>
                 </viewController>
@@ -84,7 +85,7 @@
         <!--Add Values-->
         <scene sceneID="XZH-Th-vVB">
             <objects>
-                <viewController title="Add Values" id="k3Z-xJ-HpV" customClass="AddItemViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddItem" title="Add Values" id="k3Z-xJ-HpV" customClass="AddItemViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oID-5r-oc0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +140,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eht-lx-pQY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="crT-iq-XFa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="List" automaticallyAdjustsScrollViewInsets="NO" id="crT-iq-XFa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LIu-vG-CPc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

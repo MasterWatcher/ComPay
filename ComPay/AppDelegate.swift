@@ -9,19 +9,47 @@
 import Google
 import GoogleSignIn
 import UIKit
+import GoogleAPIClientForREST
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
-
+    private let scopes = [kGTLRAuthScopeSheetsSpreadsheets]
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError ?? nil))")
+        
+        
+        
+        
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().scopes = scopes
+        GIDSignIn.sharedInstance().signInSilently()
+        
+        
         return true
     }
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if error != nil { return }
+        let gtlrService = GTLRSheetsService()
+        gtlrService.authorizer = user.authentication.fetcherAuthorizer()
+        
+        let sheetsService = SheetsServiceImpl(service: gtlrService)
+        let sceneCoordinator = SceneCoordinatorImpl(window: window!)
+        let listViewModel = ListViewModel(service: sheetsService, coordinator: sceneCoordinator)
+        let firstScene = Scene.list(listViewModel)
+        sceneCoordinator.transition(to: firstScene, type: .root)
+    }
+    
+    
     
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

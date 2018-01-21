@@ -11,7 +11,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, BindableType {
+   
+    var viewModel: AddItemViewModel!
+    
+    func bindViewModel() {
+        
+    }
     
     @IBOutlet weak var hotWaterTextField: UITextField!
     @IBOutlet weak var coldWaterTextField: UITextField!

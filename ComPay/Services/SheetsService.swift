@@ -14,7 +14,7 @@ import SwiftyJSON
 
 protocol SheetsService {
     func monthData() -> Observable<[MonthData]>
-    func create(entry: Entry)// -> Observable<Void>
+    func create(entry: Entry) -> Observable<Void>
 }
 
 class SheetsServiceImpl : NSObject, SheetsService {
@@ -49,15 +49,14 @@ class SheetsServiceImpl : NSObject, SheetsService {
         }
     }
     
-    func create(entry: Entry) {
+    func create(entry: Entry) -> Observable<Void> {
         let rage = "Test"
         let json: [String : Any] = ["range": rage, "majorDimension": "ROWS", "values": [["2/21/2018", entry.hotWater, entry.coldWater, entry.electricity, 1, 1, 1]]]
         let object = GTLRSheets_ValueRange(json: json)
         let query = GTLRSheetsQuery_SpreadsheetsValuesAppend.query(withObject: object, spreadsheetId: spreadsheetId, range: rage)
         query.valueInputOption = kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_Raw
-        service.rx.request(withQuery: query)
-            .subscribe { (result) in
-                print(result)
+        return service.rx.request(withQuery: query).map(){ _ -> Void in
+            return Void()
         }
     }
 }
