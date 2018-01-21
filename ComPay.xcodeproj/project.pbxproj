@@ -22,6 +22,7 @@
 		3A343312200BCA94005F100B /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343311200BCA94005F100B /* MonthCell.swift */; };
 		3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E4200E71E6005CE80E /* ListViewController.swift */; };
 		3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */; };
+		3A414229200FB46900CC9FBC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A414228200FB46900CC9FBC /* Entry.swift */; };
 		72CE874CF830F174BE46F61E /* Pods_ComPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959747CE1E231E3D85A106F /* Pods_ComPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		3A343311200BCA94005F100B /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
 		3A3DF0E4200E71E6005CE80E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3A414228200FB46900CC9FBC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		70DF8CE1C20F6C24D52FAB99 /* Pods-ComPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.release.xcconfig"; sourceTree = "<group>"; };
 		7959747CE1E231E3D85A106F /* Pods_ComPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				3A34330520092206005F100B /* MonthData.swift */,
+				3A414228200FB46900CC9FBC /* Entry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ComPay/Pods-ComPay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -373,6 +377,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
@@ -412,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A414229200FB46900CC9FBC /* Entry.swift in Sources */,
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
 				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,

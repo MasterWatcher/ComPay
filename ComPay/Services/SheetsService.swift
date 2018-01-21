@@ -14,11 +14,13 @@ import SwiftyJSON
 
 protocol SheetsService {
     func monthData() -> Observable<[MonthData]>
-    // func monthData()
+    func create(entry: Entry)// -> Observable<Void>
 }
 
 class SheetsServiceImpl : NSObject, SheetsService {
    
+    let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
+    
     private let service: GTLRSheetsService
     
     init(service: GTLRSheetsService) {
@@ -27,10 +29,7 @@ class SheetsServiceImpl : NSObject, SheetsService {
     }
     
     func monthData() -> Observable<[MonthData]> {
-        let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
         let query = GTLRSheetsQuery_SpreadsheetsValuesBatchGet.query(withSpreadsheetId: spreadsheetId)
-        //query.valueRenderOption = kGTLRSheetsValueRenderOptionFormula
-      //  query.dateTimeRenderOption = kGTLRSheetsDateTimeRenderOptionSerialNumber
         query.ranges = ["A3:A", "K3:K"]
         
         return service.rx.request(withQuery: query).map() { ticket, response in
@@ -47,6 +46,18 @@ class SheetsServiceImpl : NSObject, SheetsService {
                 monthData.append(MonthData(date: date[i][0].stringValue, value: value[i][0].doubleValue))
             }
             return monthData
+        }
+    }
+    
+    func create(entry: Entry) {
+        let rage = "Test"
+        let json: [String : Any] = ["range": rage, "majorDimension": "ROWS", "values": [["2/21/2018", entry.hotWater, entry.coldWater, entry.electricity, 1, 1, 1]]]
+        let object = GTLRSheets_ValueRange(json: json)
+        let query = GTLRSheetsQuery_SpreadsheetsValuesAppend.query(withObject: object, spreadsheetId: spreadsheetId, range: rage)
+        query.valueInputOption = kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_Raw
+        service.rx.request(withQuery: query)
+            .subscribe { (result) in
+                print(result)
         }
     }
 }

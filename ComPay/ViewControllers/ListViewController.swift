@@ -17,10 +17,12 @@ class ListViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
+    private let scopes = [kGTLRAuthScopeSheetsSpreadsheets]
     
     private let service = GTLRSheetsService()
     let signInButton = GIDSignInButton()
+    
+    var sheetsService: SheetsService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,11 @@ class ListViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         //view.addSubview(signInButton)
     }
     
+    
+    @IBAction func onAddButtonTouch(_ sender: Any) {
+        sheetsService.create(entry: Entry(hotWater: 40, coldWater: 70, electricity: 40010))
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
@@ -43,9 +50,9 @@ class ListViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         } else {
             self.signInButton.isHidden = true
             self.service.authorizer = user.authentication.fetcherAuthorizer()
-            //SheetsServiceImpl(service:self.service).monthData()
             
-            SheetsServiceImpl(service:self.service).monthData()
+            sheetsService = SheetsServiceImpl(service:self.service)
+            sheetsService.monthData()
                 .bind(to: tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
                     guard let cell = cell as? MonthCell else { return }
                     cell.monthLabel.text = model.date
@@ -53,15 +60,6 @@ class ListViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 }
                 .disposed(by: rx.disposeBag)
         }
-    }
-    
-    func updateSheet() {
-//        let query = GTLRSheetsQuery_SpreadsheetsValuesUpdate
-//            .query(withSpreadsheetId: spreadsheetId, range:range)
-//        service.executeQuery(query,
-//                             delegate: self,
-//                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
-//        )
     }
     
     // Helper for showing an alert
