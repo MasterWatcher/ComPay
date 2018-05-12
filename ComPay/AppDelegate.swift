@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheets]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        GIDSignIn.sharedInstance().clientID = "862716452666-aihik5vrm1bvp6e1gb1crsg4svrnfmi3.apps.googleusercontent.com"
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError ?? nil))")

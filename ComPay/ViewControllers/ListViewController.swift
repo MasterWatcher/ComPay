@@ -30,8 +30,6 @@ class ListViewController: UIViewController, BindableType {
     }
     
     @IBOutlet weak var tableView: UITableView!
-
-    //let signInButton = GIDSignInButton()
     
     var sheetsService: SheetsService!
     
@@ -44,8 +42,6 @@ class ListViewController: UIViewController, BindableType {
 //        GIDSignIn.sharedInstance().scopes = scopes
 //        GIDSignIn.sharedInstance().signInSilently()
         
-        // Add the sign-in button.
-        //view.addSubview(signInButton)
     }
     
 //    @IBAction func onAddButtonTouch(_ sender: Any) {
