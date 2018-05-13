@@ -22,7 +22,7 @@ struct AddItemViewModel {
     
     func transform(input: Input) -> Output {
         let counterReadings = Driver.combineLatest(input.coldWater, input.hotWater, input.electricity)
-        let sumbitEnabled = counterReadings
+        let submitEnabled = counterReadings
             .map { (coldWater, hotWater, electricity) -> Bool in
                 return !coldWater.isEmpty && !hotWater.isEmpty && !electricity.isEmpty
             }
@@ -36,7 +36,7 @@ struct AddItemViewModel {
                 .asDriver(onErrorJustReturn: ())
             }
         
-        return Output(sumbitEnabled: sumbitEnabled, submit: submit)
+        return Output(submitEnabled: submitEnabled, submit: submit)
     }
 }
 
@@ -49,7 +49,7 @@ extension AddItemViewModel {
     }
     
     struct Output {
-        let sumbitEnabled: Driver<Bool>
+        let submitEnabled: Driver<Bool>
         let submit: Driver<Void>
     }
 }

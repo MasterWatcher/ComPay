@@ -21,6 +21,7 @@
 		3A343309200B9E9F005F100B /* SheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343308200B9E9F005F100B /* SheetsService.swift */; };
 		3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */; };
 		3A343312200BCA94005F100B /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343311200BCA94005F100B /* MonthCell.swift */; };
+		3A37FFBD20A8A6D30076128E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */; };
 		3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E4200E71E6005CE80E /* ListViewController.swift */; };
 		3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */; };
 		3A414229200FB46900CC9FBC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A414228200FB46900CC9FBC /* Entry.swift */; };
@@ -72,6 +73,7 @@
 		3A343308200B9E9F005F100B /* SheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsService.swift; sourceTree = "<group>"; };
 		3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GTLRSheetsService+Rx.swift"; sourceTree = "<group>"; };
 		3A343311200BCA94005F100B /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3A3DF0E4200E71E6005CE80E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		3A414228200FB46900CC9FBC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				3A3DF0E4200E71E6005CE80E /* ListViewController.swift */,
 				3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */,
 				3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */,
+				3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */,
 				3A0740ED208CA879007CDC63 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
@@ -460,6 +463,7 @@
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
 				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,
+				3A37FFBD20A8A6D30076128E /* LoginViewModel.swift in Sources */,
 				3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */,
 				3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */,
 				3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */,

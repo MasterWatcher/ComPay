@@ -9,6 +9,7 @@
 import Foundation
 
 enum Scene {
+    case login(LoginViewModel)
     case list(ListViewModel)
     case addItem(AddItemViewModel)
 }

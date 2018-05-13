@@ -28,7 +28,7 @@ class AddItemViewController: UIViewController, BindableType {
                                            submitTrigger: submitButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input: input)
-        output.sumbitEnabled
+        output.submitEnabled
             .drive(submitButton.rx.isEnabled)
             .disposed(by: rx.disposeBag)
         output.submit

@@ -10,7 +10,13 @@ import UIKit
 import GoogleAPIClientForREST
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, BindableType {
+    
+    var viewModel: LoginViewModel!
+    
+    func bindViewModel() {
+        
+    }
 
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheets]
     
@@ -21,6 +27,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().scopes = scopes
+        signInButton.center = view.center
         view.addSubview(signInButton)
     }
     

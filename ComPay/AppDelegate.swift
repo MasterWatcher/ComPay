@@ -39,14 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
-        if error != nil { return }
-        let gtlrService = GTLRSheetsService()
-        gtlrService.authorizer = user.authentication.fetcherAuthorizer()
-        
-        let sheetsService = SheetsServiceImpl(service: gtlrService)
         let sceneCoordinator = SceneCoordinatorImpl(window: window!)
-        let listViewModel = ListViewModel(service: sheetsService, coordinator: sceneCoordinator)
-        let firstScene = Scene.list(listViewModel)
+        let firstScene: Scene
+        if let _ = error {
+            let loginViewModel = LoginViewModel(coordinator: sceneCoordinator)
+            firstScene = .login(loginViewModel)
+        } else {
+            let gtlrService = GTLRSheetsService()
+            gtlrService.authorizer = user.authentication.fetcherAuthorizer()
+            
+            let sheetsService = SheetsServiceImpl(service: gtlrService)
+            let listViewModel = ListViewModel(service: sheetsService, coordinator: sceneCoordinator)
+            firstScene = .list(listViewModel)
+            
+        }
         sceneCoordinator.transition(to: firstScene, type: .root)
     }
     

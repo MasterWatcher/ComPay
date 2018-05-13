@@ -136,7 +136,7 @@
         <!--Login View Controller-->
         <scene sceneID="YYO-Pu-yur">
             <objects>
-                <viewController id="MRp-Q1-nXU" customClass="LoginViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="MRp-Q1-nXU" customClass="LoginViewController" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WER-fn-YMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
