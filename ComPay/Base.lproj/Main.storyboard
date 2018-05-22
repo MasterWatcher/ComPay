@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-Em-Vjy">
-                                <rect key="frame" x="16" y="36" width="343" height="168"/>
+                                <rect key="frame" x="16" y="36" width="343" height="214"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hot Water" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-4r-8hD">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -107,8 +107,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-YX-9Vb">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IxK-2a-lf3">
                                         <rect key="frame" x="0.0" y="138" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-YX-9Vb">
+                                        <rect key="frame" x="0.0" y="184" width="343" height="30"/>
                                         <state key="normal" title="Submit"/>
                                     </button>
                                 </subviews>
@@ -124,6 +130,7 @@
                     </view>
                     <connections>
                         <outlet property="coldWaterTextField" destination="a3C-iH-5iZ" id="6Lp-yk-2b0"/>
+                        <outlet property="dateTextField" destination="IxK-2a-lf3" id="Rf3-dZ-jkv"/>
                         <outlet property="electricityTextField" destination="b5e-QM-hAw" id="ZW0-8Z-LfF"/>
                         <outlet property="hotWaterTextField" destination="Qok-4r-8hD" id="1fl-BI-tev"/>
                         <outlet property="submitButton" destination="zRg-YX-9Vb" id="0Ly-Km-pLv"/>

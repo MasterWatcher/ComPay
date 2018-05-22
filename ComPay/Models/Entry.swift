@@ -12,4 +12,5 @@ struct Entry {
     let hotWater: Double
     let coldWater: Double
     let electricity: Double
+    let date: String
 }
