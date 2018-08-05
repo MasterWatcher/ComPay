@@ -24,7 +24,8 @@ extension Scene {
         case .addItem(let viewModel):
             var vc = storyboard.instantiateViewController(withIdentifier: "AddItem") as! AddItemViewController
             vc.bindViewModel(to: viewModel)
-            return vc
+            let nc = UINavigationController(rootViewController: vc)
+            return nc
         }
     }
 }

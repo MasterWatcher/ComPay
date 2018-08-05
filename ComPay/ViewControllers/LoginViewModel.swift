@@ -17,14 +17,6 @@ struct LoginViewModel {
     init(coordinator: SceneCoordinator) {
         self.coordinator = coordinator
     }
-    
-//    func transform(input: Input) -> Output {
-//        let login = input.loginTrigger
-//            .do(onNext: {
-//                let listViewModel =
-//                coordinator.transition(to: .list(<#T##ListViewModel#>), type: .root)
-//            })
-//    }
 }
 
 extension LoginViewModel {

@@ -35,18 +35,7 @@ class ListViewController: UIViewController, BindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Configure Google Sign-in.
-//        GIDSignIn.sharedInstance().delegate = self
-//        GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().scopes = scopes
-//        GIDSignIn.sharedInstance().signInSilently()
-        
     }
-    
-//    @IBAction func onAddButtonTouch(_ sender: Any) {
-//        sheetsService.create(entry: Entry(hotWater: 40, coldWater: 70, electricity: 40010))
-//    }
     
     // Helper for showing an alert
     func showAlert(title : String, message: String) {

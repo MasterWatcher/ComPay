@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-Em-Vjy">
-                                <rect key="frame" x="16" y="36" width="343" height="214"/>
+                                <rect key="frame" x="16" y="80" width="343" height="214"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hot Water" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-4r-8hD">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -128,7 +128,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gPU-Df-rf2"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Values" id="kil-Ih-KZH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fKX-bS-kvU"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="cancelButton" destination="fKX-bS-kvU" id="QNb-qg-bEY"/>
                         <outlet property="coldWaterTextField" destination="a3C-iH-5iZ" id="6Lp-yk-2b0"/>
                         <outlet property="dateTextField" destination="IxK-2a-lf3" id="Rf3-dZ-jkv"/>
                         <outlet property="electricityTextField" destination="b5e-QM-hAw" id="ZW0-8Z-LfF"/>

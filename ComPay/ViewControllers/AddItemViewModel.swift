@@ -37,7 +37,13 @@ struct AddItemViewModel {
                 .asDriver(onErrorJustReturn: ())
             }
         let date = Driver.just("22/05/2018")
-        return Output(date: date, submitEnabled: submitEnabled, submit: submit)
+        let dismiss = Driver.of(submit, input.cancelTrigger)
+            .merge()
+            .flatMapLatest {_ in
+                return self.coordinator.pop().asDriver(onErrorJustReturn: ())
+        }
+        
+        return Output(date: date, submitEnabled: submitEnabled, dismiss: dismiss)
     }
 }
 
@@ -48,11 +54,12 @@ extension AddItemViewModel {
         var electricity: Driver<String>
         var date: Driver<String>
         var submitTrigger: Driver<Void>
+        var cancelTrigger: Driver<Void>
     }
     
     struct Output {
         let date: Driver<String>
         let submitEnabled: Driver<Bool>
-        let submit: Driver<Void>
+        let dismiss: Driver<Void>
     }
 }

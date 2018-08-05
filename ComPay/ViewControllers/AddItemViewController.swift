@@ -19,6 +19,7 @@ class AddItemViewController: UIViewController, BindableType {
     @IBOutlet weak var electricityTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var viewModel: AddItemViewModel!
     
@@ -27,7 +28,8 @@ class AddItemViewController: UIViewController, BindableType {
                                            coldWater: coldWaterTextField.rx.text.orEmpty.asDriver(),
                                            electricity: electricityTextField.rx.text.orEmpty.asDriver(),
                                            date: dateTextField.rx.text.orEmpty.asDriver(),
-                                           submitTrigger: submitButton.rx.tap.asDriver())
+                                           submitTrigger: submitButton.rx.tap.asDriver(),
+                                           cancelTrigger: cancelButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input: input)
         output.date
@@ -36,10 +38,9 @@ class AddItemViewController: UIViewController, BindableType {
         output.submitEnabled
             .drive(submitButton.rx.isEnabled)
             .disposed(by: rx.disposeBag)
-        output.submit
+        output.dismiss
             .drive()
             .disposed(by: rx.disposeBag)
-        
     }
     
     override func viewDidLoad() {

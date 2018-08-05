@@ -27,7 +27,7 @@ struct ListViewModel {
     func onAddItem() -> CocoaAction {
         return CocoaAction { _ in
             let addItemViewModel = AddItemViewModel(service: self.service, coordinator: self.coordinator)
-            return self.coordinator.transition(to: Scene.addItem(addItemViewModel), type: .push)
+            return self.coordinator.transition(to: Scene.addItem(addItemViewModel), type: .modal)
         }
     }
 }
