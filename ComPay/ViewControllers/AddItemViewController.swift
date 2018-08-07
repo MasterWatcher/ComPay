@@ -20,6 +20,7 @@ class AddItemViewController: UIViewController, BindableType {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: AddItemViewModel!
     
@@ -34,6 +35,9 @@ class AddItemViewController: UIViewController, BindableType {
         let output = viewModel.transform(input: input)
         output.date
             .drive(dateTextField.rx.text)
+            .disposed(by: rx.disposeBag)
+        output.isLoading
+            .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
         output.submitEnabled
             .drive(submitButton.rx.isEnabled)

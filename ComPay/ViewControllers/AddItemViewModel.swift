@@ -21,11 +21,15 @@ struct AddItemViewModel {
     }
     
     func transform(input: Input) -> Output {
+        let activityIndicator = ActivityIndicator()
+        let isLoading = activityIndicator.asDriver()
         let counterReadings = Driver.combineLatest(input.coldWater, input.hotWater, input.electricity, input.date)
-        let submitEnabled = counterReadings
-            .map { (coldWater, hotWater, electricity, date) -> Bool in
-                return !coldWater.isEmpty && !hotWater.isEmpty && !electricity.isEmpty && !date.isEmpty
+        let submitEnabled = Driver.combineLatest(counterReadings, isLoading)
+            .map { (arg0, isLoading) -> Bool in
+                let (coldWater, hotWater, electricity, date) = arg0
+                return !coldWater.isEmpty && !hotWater.isEmpty && !electricity.isEmpty && !date.isEmpty && !isLoading
             }
+            .distinctUntilChanged()
         let submit = input.submitTrigger
             .withLatestFrom(counterReadings)
             .map { (arg) -> Entry in
@@ -34,6 +38,7 @@ struct AddItemViewModel {
             }
             .flatMapLatest { entry in
                 return self.service.create(entry: entry)
+                .trackActivity(activityIndicator)
                 .asDriver(onErrorJustReturn: ())
             }
         let date = Driver.just("22/05/2018")
@@ -42,8 +47,7 @@ struct AddItemViewModel {
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
         }
-        
-        return Output(date: date, submitEnabled: submitEnabled, dismiss: dismiss)
+        return Output(date: date, isLoading: isLoading, submitEnabled: submitEnabled, dismiss: dismiss)
     }
 }
 
@@ -59,6 +63,7 @@ extension AddItemViewModel {
     
     struct Output {
         let date: Driver<String>
+        let isLoading: Driver<Bool>
         let submitEnabled: Driver<Bool>
         let dismiss: Driver<Void>
     }

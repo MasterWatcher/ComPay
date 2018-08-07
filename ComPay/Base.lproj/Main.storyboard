@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-Em-Vjy">
-                                <rect key="frame" x="16" y="80" width="343" height="214"/>
+                                <rect key="frame" x="16" y="80" width="343" height="228"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hot Water" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-4r-8hD">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -114,15 +114,26 @@
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-YX-9Vb">
-                                        <rect key="frame" x="0.0" y="184" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="184" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="lCl-os-oTf"/>
+                                        </constraints>
                                         <state key="normal" title="Submit"/>
+                                        <state key="disabled">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-SF-Qvf">
+                                <rect key="frame" x="26" y="276" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YQA-SF-Qvf" firstAttribute="centerY" secondItem="zRg-YX-9Vb" secondAttribute="centerY" id="NPU-gm-xr3"/>
                             <constraint firstItem="5Tl-Em-Vjy" firstAttribute="top" secondItem="gPU-Df-rf2" secondAttribute="top" constant="16" id="XER-bD-L6D"/>
+                            <constraint firstItem="YQA-SF-Qvf" firstAttribute="leading" secondItem="zRg-YX-9Vb" secondAttribute="leading" constant="10" id="feH-GA-Ntu"/>
                             <constraint firstItem="5Tl-Em-Vjy" firstAttribute="leading" secondItem="gPU-Df-rf2" secondAttribute="leading" constant="16" id="hBt-CC-Vch"/>
                             <constraint firstItem="gPU-Df-rf2" firstAttribute="trailing" secondItem="5Tl-Em-Vjy" secondAttribute="trailing" constant="16" id="vUS-Kd-Fe2"/>
                         </constraints>
@@ -133,6 +144,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="YQA-SF-Qvf" id="dU7-wi-wXN"/>
                         <outlet property="cancelButton" destination="fKX-bS-kvU" id="QNb-qg-bEY"/>
                         <outlet property="coldWaterTextField" destination="a3C-iH-5iZ" id="6Lp-yk-2b0"/>
                         <outlet property="dateTextField" destination="IxK-2a-lf3" id="Rf3-dZ-jkv"/>
