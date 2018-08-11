@@ -10,7 +10,23 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct AddItemViewModel {
+struct AddItemViewModel: ViewModel {
+    
+    struct Input {
+        let hotWater: Driver<String>
+        let coldWater: Driver<String>
+        let electricity: Driver<String>
+        let date: Driver<String>
+        let submitTrigger: Driver<Void>
+        let cancelTrigger: Driver<Void>
+    }
+    
+    struct Output {
+        let date: Driver<String>
+        let isLoading: Driver<Bool>
+        let submitEnabled: Driver<Bool>
+        let dismiss: Driver<Void>
+    }
     
     let service: SheetsService
     let coordinator: SceneCoordinator
@@ -48,23 +64,5 @@ struct AddItemViewModel {
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
         }
         return Output(date: date, isLoading: isLoading, submitEnabled: submitEnabled, dismiss: dismiss)
-    }
-}
-
-extension AddItemViewModel {
-    struct Input {
-        var hotWater: Driver<String>
-        var coldWater: Driver<String>
-        var electricity: Driver<String>
-        var date: Driver<String>
-        var submitTrigger: Driver<Void>
-        var cancelTrigger: Driver<Void>
-    }
-    
-    struct Output {
-        let date: Driver<String>
-        let isLoading: Driver<Bool>
-        let submitEnabled: Driver<Bool>
-        let dismiss: Driver<Void>
     }
 }

@@ -18,15 +18,24 @@ class ListViewController: UIViewController, BindableType {
     @IBOutlet weak var addItemButton: UIBarButtonItem!
     
     func bindViewModel() {
-        viewModel.items
-            .bind(to: tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
-                guard let cell = cell as? MonthCell else { return }
-                cell.monthLabel.text = model.date
-                cell.totalLabel.text = "\(model.value)"
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asDriverOnErrorJustComplete()
+        let input = ListViewModel.Input(loadItemsTrigger: viewWillAppear,
+                                        addItemTrigger: addItemButton.rx.tap.asDriver())
+        
+        let output = viewModel.transform(input: input)
+        
+        output.items.drive(tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
+            guard let cell = cell as? MonthCell else { return }
+            cell.monthLabel.text = model.date
+            cell.totalLabel.text = "\(model.value)"
             }
             .disposed(by: rx.disposeBag)
         
-        addItemButton.rx.action = viewModel.onAddItem()
+        output.addItem
+            .drive()
+            .disposed(by: rx.disposeBag)
     }
     
     @IBOutlet weak var tableView: UITableView!

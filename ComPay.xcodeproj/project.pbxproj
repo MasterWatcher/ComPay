@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A0740EE208CA879007CDC63 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0740ED208CA879007CDC63 /* LoginViewController.swift */; };
+		3A16BF68211F610B00F7E568 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF67211F610B00F7E568 /* ViewModel.swift */; };
+		3A16BF6A211F646C00F7E568 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF69211F646C00F7E568 /* Observable+Extensions.swift */; };
 		3A1B8981211A13EC00FDDB4D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B8980211A13EC00FDDB4D /* ActivityIndicator.swift */; };
 		3A3432D420067911005F100B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3432D320067911005F100B /* AppDelegate.swift */; };
 		3A3432D920067911005F100B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3432D720067911005F100B /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		19BB44FFB4E38FACAA434B43 /* Pods-ComPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.debug.xcconfig"; sourceTree = "<group>"; };
 		3A0740ED208CA879007CDC63 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3A16BF67211F610B00F7E568 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3A16BF69211F646C00F7E568 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
 		3A1B8980211A13EC00FDDB4D /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3A3432D020067911005F100B /* ComPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3432D320067911005F100B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,10 +121,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A16BF66211F610000F7E568 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A16BF67211F610B00F7E568 /* ViewModel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3A1B897F211A13D300FDDB4D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				3A1B8980211A13EC00FDDB4D /* ActivityIndicator.swift */,
+				3A16BF69211F646C00F7E568 /* Observable+Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -153,6 +166,7 @@
 				3A3432D320067911005F100B /* AppDelegate.swift */,
 				3A1B897F211A13D300FDDB4D /* Utility */,
 				3A34330B200BB276005F100B /* Extensions */,
+				3A16BF66211F610000F7E568 /* Common */,
 				3A41422B2014FE4500CC9FBC /* Scenes */,
 				3A343307200928B8005F100B /* Services */,
 				3A34330A200B9FE7005F100B /* Models */,
@@ -470,12 +484,14 @@
 				3A41422D2014FE5700CC9FBC /* SceneCoordinator.swift in Sources */,
 				3A1B8981211A13EC00FDDB4D /* ActivityIndicator.swift in Sources */,
 				3A4142332014FEDA00CC9FBC /* AddItemViewModel.swift in Sources */,
+				3A16BF6A211F646C00F7E568 /* Observable+Extensions.swift in Sources */,
 				3A414229200FB46900CC9FBC /* Entry.swift in Sources */,
 				3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */,
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
 				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,
 				3A37FFBD20A8A6D30076128E /* LoginViewModel.swift in Sources */,
+				3A16BF68211F610B00F7E568 /* ViewModel.swift in Sources */,
 				3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */,
 				3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */,
 				3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */,

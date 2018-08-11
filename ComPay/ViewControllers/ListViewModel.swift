@@ -8,9 +8,19 @@
 
 import Foundation
 import RxSwift
-import Action
+import RxCocoa
 
-struct ListViewModel {
+struct ListViewModel: ViewModel {
+    
+    struct Input {
+        let loadItemsTrigger: Driver<Void>
+        let addItemTrigger: Driver<Void>
+    }
+    
+    struct Output {
+        let items: Driver<[MonthData]>
+        let addItem: Driver<Void>
+    }
     
     let service: SheetsService
     let coordinator: SceneCoordinator
@@ -20,14 +30,17 @@ struct ListViewModel {
         self.coordinator = coordinator
     }
     
-    var items: Observable<[MonthData]> {
-        return service.monthData()
-    }
-    
-    func onAddItem() -> CocoaAction {
-        return CocoaAction { _ in
-            let addItemViewModel = AddItemViewModel(service: self.service, coordinator: self.coordinator)
-            return self.coordinator.transition(to: Scene.addItem(addItemViewModel), type: .modal)
+    func transform(input: Input) -> Output {
+        let items = input.loadItemsTrigger
+            .flatMapLatest {_ in
+                return self.service.monthData()
+                    .asDriverOnErrorJustComplete()
         }
+        let addItemTrigger = input.addItemTrigger.do(onNext: {
+            let addItemViewModel = AddItemViewModel(service: self.service, coordinator: self.coordinator)
+            self.coordinator.transition(to: Scene.addItem(addItemViewModel), type: .modal)
+        })
+        
+        return Output(items: items, addItem: addItemTrigger)
     }
 }
