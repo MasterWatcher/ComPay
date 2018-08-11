@@ -20,6 +20,7 @@ struct ListViewModel: ViewModel {
     struct Output {
         let items: Driver<[MonthData]>
         let addItem: Driver<Void>
+        let isLoading: Driver<Bool>
     }
     
     let service: SheetsService
@@ -31,9 +32,12 @@ struct ListViewModel: ViewModel {
     }
     
     func transform(input: Input) -> Output {
+        let activityIndicator = ActivityIndicator()
+        let isLoading = activityIndicator.asDriver()
         let items = input.loadItemsTrigger
             .flatMapLatest {_ in
                 return self.service.monthData()
+                    .trackActivity(activityIndicator)
                     .asDriverOnErrorJustComplete()
         }
         let addItemTrigger = input.addItemTrigger.do(onNext: {
@@ -41,6 +45,6 @@ struct ListViewModel: ViewModel {
             self.coordinator.transition(to: Scene.addItem(addItemViewModel), type: .modal)
         })
         
-        return Output(items: items, addItem: addItemTrigger)
+        return Output(items: items, addItem: addItemTrigger, isLoading:isLoading)
     }
 }

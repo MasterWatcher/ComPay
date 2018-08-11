@@ -10,6 +10,7 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 import NSObject_Rx
+import RxCocoa
 
 class ListViewController: UIViewController, BindableType {
     
@@ -17,33 +18,38 @@ class ListViewController: UIViewController, BindableType {
     
     @IBOutlet weak var addItemButton: UIBarButtonItem!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var sheetsService: SheetsService!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.refreshControl = UIRefreshControl()
+    }
+    
     func bindViewModel() {
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
             .mapToVoid()
             .asDriverOnErrorJustComplete()
-        let input = ListViewModel.Input(loadItemsTrigger: viewWillAppear,
+        let pull = tableView.refreshControl!.rx
+            .controlEvent(.valueChanged)
+            .asDriver()
+        
+        let input = ListViewModel.Input(loadItemsTrigger: Driver.merge(viewWillAppear, pull),
                                         addItemTrigger: addItemButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input: input)
-        
         output.items.drive(tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
             guard let cell = cell as? MonthCell else { return }
             cell.monthLabel.text = model.date
             cell.totalLabel.text = "\(model.value)"
             }
             .disposed(by: rx.disposeBag)
-        
         output.addItem
             .drive()
             .disposed(by: rx.disposeBag)
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    var sheetsService: SheetsService!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        output.isLoading
+            .drive(tableView.refreshControl!.rx.isRefreshing)
+            .disposed(by: rx.disposeBag)
     }
     
     // Helper for showing an alert
