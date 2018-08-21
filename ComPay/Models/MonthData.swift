@@ -9,6 +9,6 @@
 import Foundation
 
 struct MonthData {
-    let date: String
+    let date: Date
     let value: Double
 }

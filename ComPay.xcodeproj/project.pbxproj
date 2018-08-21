@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0740EE208CA879007CDC63 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0740ED208CA879007CDC63 /* LoginViewController.swift */; };
 		3A16BF68211F610B00F7E568 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF67211F610B00F7E568 /* ViewModel.swift */; };
 		3A16BF6A211F646C00F7E568 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF69211F646C00F7E568 /* Observable+Extensions.swift */; };
+		3A16BF74212C8BB400F7E568 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF6C212C8BB300F7E568 /* ListViewController.swift */; };
+		3A16BF75212C8BB400F7E568 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF6D212C8BB300F7E568 /* ListViewModel.swift */; };
+		3A16BF76212C8BB400F7E568 /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF6F212C8BB400F7E568 /* AddItemViewModel.swift */; };
+		3A16BF77212C8BB400F7E568 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF70212C8BB400F7E568 /* AddItemViewController.swift */; };
+		3A16BF78212C8BB400F7E568 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF72212C8BB400F7E568 /* LoginViewModel.swift */; };
+		3A16BF79212C8BB400F7E568 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF73212C8BB400F7E568 /* LoginViewController.swift */; };
+		3A16BF7B212C8BCA00F7E568 /* MonthItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16BF7A212C8BCA00F7E568 /* MonthItemViewModel.swift */; };
 		3A1B8981211A13EC00FDDB4D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B8980211A13EC00FDDB4D /* ActivityIndicator.swift */; };
 		3A3432D420067911005F100B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3432D320067911005F100B /* AppDelegate.swift */; };
 		3A3432D920067911005F100B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3432D720067911005F100B /* Main.storyboard */; };
@@ -24,14 +30,9 @@
 		3A343309200B9E9F005F100B /* SheetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343308200B9E9F005F100B /* SheetsService.swift */; };
 		3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */; };
 		3A343312200BCA94005F100B /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A343311200BCA94005F100B /* MonthCell.swift */; };
-		3A37FFBD20A8A6D30076128E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */; };
-		3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E4200E71E6005CE80E /* ListViewController.swift */; };
-		3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */; };
 		3A414229200FB46900CC9FBC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A414228200FB46900CC9FBC /* Entry.swift */; };
 		3A41422D2014FE5700CC9FBC /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41422C2014FE5700CC9FBC /* SceneCoordinator.swift */; };
 		3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41422E2014FE7600CC9FBC /* Scene.swift */; };
-		3A4142312014FEC400CC9FBC /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142302014FEC400CC9FBC /* ListViewModel.swift */; };
-		3A4142332014FEDA00CC9FBC /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */; };
 		3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142342014FF3E00CC9FBC /* SceneTransitionType.swift */; };
 		3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */; };
 		3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */; };
@@ -58,9 +59,15 @@
 
 /* Begin PBXFileReference section */
 		19BB44FFB4E38FACAA434B43 /* Pods-ComPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.debug.xcconfig"; sourceTree = "<group>"; };
-		3A0740ED208CA879007CDC63 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3A16BF67211F610B00F7E568 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3A16BF69211F646C00F7E568 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
+		3A16BF6C212C8BB300F7E568 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		3A16BF6D212C8BB300F7E568 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		3A16BF6F212C8BB400F7E568 /* AddItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
+		3A16BF70212C8BB400F7E568 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3A16BF72212C8BB400F7E568 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3A16BF73212C8BB400F7E568 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3A16BF7A212C8BCA00F7E568 /* MonthItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthItemViewModel.swift; sourceTree = "<group>"; };
 		3A1B8980211A13EC00FDDB4D /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3A3432D020067911005F100B /* ComPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3432D320067911005F100B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,14 +86,9 @@
 		3A343308200B9E9F005F100B /* SheetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsService.swift; sourceTree = "<group>"; };
 		3A34330C200BB2CA005F100B /* GTLRSheetsService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GTLRSheetsService+Rx.swift"; sourceTree = "<group>"; };
 		3A343311200BCA94005F100B /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
-		3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		3A3DF0E4200E71E6005CE80E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		3A414228200FB46900CC9FBC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		3A41422C2014FE5700CC9FBC /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		3A41422E2014FE7600CC9FBC /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		3A4142302014FEC400CC9FBC /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 		3A4142342014FF3E00CC9FBC /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorImpl.swift; sourceTree = "<group>"; };
 		3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
@@ -127,6 +129,35 @@
 				3A16BF67211F610B00F7E568 /* ViewModel.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		3A16BF6B212C8BB300F7E568 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				3A16BF6C212C8BB300F7E568 /* ListViewController.swift */,
+				3A16BF6D212C8BB300F7E568 /* ListViewModel.swift */,
+				3A16BF7A212C8BCA00F7E568 /* MonthItemViewModel.swift */,
+				3A343311200BCA94005F100B /* MonthCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		3A16BF6E212C8BB400F7E568 /* AddItem */ = {
+			isa = PBXGroup;
+			children = (
+				3A16BF6F212C8BB400F7E568 /* AddItemViewModel.swift */,
+				3A16BF70212C8BB400F7E568 /* AddItemViewController.swift */,
+			);
+			path = AddItem;
+			sourceTree = "<group>";
+		};
+		3A16BF71212C8BB400F7E568 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3A16BF72212C8BB400F7E568 /* LoginViewModel.swift */,
+				3A16BF73212C8BB400F7E568 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		3A1B897F211A13D300FDDB4D /* Utility */ = {
@@ -171,7 +202,6 @@
 				3A343307200928B8005F100B /* Services */,
 				3A34330A200B9FE7005F100B /* Models */,
 				3A3DF0E3200E71E6005CE80E /* ViewControllers */,
-				3A343311200BCA94005F100B /* MonthCell.swift */,
 				3A3432D720067911005F100B /* Main.storyboard */,
 				3A3432DA20067911005F100B /* Assets.xcassets */,
 				3A3432DC20067911005F100B /* LaunchScreen.storyboard */,
@@ -227,12 +257,9 @@
 		3A3DF0E3200E71E6005CE80E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A4142302014FEC400CC9FBC /* ListViewModel.swift */,
-				3A3DF0E4200E71E6005CE80E /* ListViewController.swift */,
-				3A4142322014FEDA00CC9FBC /* AddItemViewModel.swift */,
-				3A3DF0E5200E71E6005CE80E /* AddItemViewController.swift */,
-				3A37FFBC20A8A6D30076128E /* LoginViewModel.swift */,
-				3A0740ED208CA879007CDC63 /* LoginViewController.swift */,
+				3A16BF71212C8BB400F7E568 /* Login */,
+				3A16BF6B212C8BB300F7E568 /* List */,
+				3A16BF6E212C8BB400F7E568 /* AddItem */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -478,27 +505,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A16BF79212C8BB400F7E568 /* LoginViewController.swift in Sources */,
 				3A41423B2015005A00CC9FBC /* BindableType.swift in Sources */,
 				3A41422D2014FE5700CC9FBC /* SceneCoordinator.swift in Sources */,
 				3A1B8981211A13EC00FDDB4D /* ActivityIndicator.swift in Sources */,
-				3A4142332014FEDA00CC9FBC /* AddItemViewModel.swift in Sources */,
 				3A16BF6A211F646C00F7E568 /* Observable+Extensions.swift in Sources */,
+				3A16BF7B212C8BCA00F7E568 /* MonthItemViewModel.swift in Sources */,
 				3A414229200FB46900CC9FBC /* Entry.swift in Sources */,
 				3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */,
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
+				3A16BF76212C8BB400F7E568 /* AddItemViewModel.swift in Sources */,
+				3A16BF78212C8BB400F7E568 /* LoginViewModel.swift in Sources */,
 				3A34330620092206005F100B /* MonthData.swift in Sources */,
-				3A3DF0E6200E7264005CE80E /* ListViewController.swift in Sources */,
-				3A37FFBD20A8A6D30076128E /* LoginViewModel.swift in Sources */,
 				3A16BF68211F610B00F7E568 /* ViewModel.swift in Sources */,
 				3A34330D200BB2CA005F100B /* GTLRSheetsService+Rx.swift in Sources */,
 				3A4142352014FF3E00CC9FBC /* SceneTransitionType.swift in Sources */,
-				3A3DF0E8200E737F005CE80E /* AddItemViewController.swift in Sources */,
 				3A3432D420067911005F100B /* AppDelegate.swift in Sources */,
 				3A343309200B9E9F005F100B /* SheetsService.swift in Sources */,
-				3A0740EE208CA879007CDC63 /* LoginViewController.swift in Sources */,
+				3A16BF77212C8BB400F7E568 /* AddItemViewController.swift in Sources */,
 				3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */,
-				3A4142312014FEC400CC9FBC /* ListViewModel.swift in Sources */,
+				3A16BF74212C8BB400F7E568 /* ListViewController.swift in Sources */,
 				3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */,
+				3A16BF75212C8BB400F7E568 /* ListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

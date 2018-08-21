@@ -18,7 +18,7 @@ struct ListViewModel: ViewModel {
     }
     
     struct Output {
-        let items: Driver<[MonthData]>
+        let items: Driver<[MonthItemViewModel]>
         let addItem: Driver<Void>
         let isLoading: Driver<Bool>
     }
@@ -39,6 +39,7 @@ struct ListViewModel: ViewModel {
                 return self.service.monthData()
                     .trackActivity(activityIndicator)
                     .asDriverOnErrorJustComplete()
+                    .map { $0.map(MonthItemViewModel.init) }
         }
         let addItemTrigger = input.addItemTrigger.do(onNext: {
             let addItemViewModel = AddItemViewModel(service: self.service, coordinator: self.coordinator)

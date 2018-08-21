@@ -21,6 +21,12 @@ class SheetsServiceImpl : NSObject, SheetsService {
    
     let spreadsheetId = "1XAp7yK02Ekiw_roxyUonpwEdbVS-7T63Tp9LBHQZ9Xs"
     
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter
+    }()
+    
     private let service: GTLRSheetsService
     
     init(service: GTLRSheetsService) {
@@ -32,18 +38,20 @@ class SheetsServiceImpl : NSObject, SheetsService {
         let query = GTLRSheetsQuery_SpreadsheetsValuesBatchGet.query(withSpreadsheetId: spreadsheetId)
         query.ranges = ["A3:A", "K3:K"]
         
-        return service.rx.request(withQuery: query).map() { ticket, response in
+        return service.rx.request(withQuery: query).map() { [weak self] ticket, response in
             guard let data = response.json else {
                 return [MonthData]()
             }
             
             let json = JSON(data)
-            let date = json["valueRanges"][0]["values"].arrayValue
+            let dateValue = json["valueRanges"][0]["values"].arrayValue
             let value = json["valueRanges"][1]["values"].arrayValue
             
             var monthData = [MonthData]()
-            for i in 0..<date.count {
-                monthData.append(MonthData(date: date[i][0].stringValue, value: value[i][0].doubleValue))
+            for i in 0..<dateValue.count {
+                if let date = self?.dateFormatter.date(from: dateValue[i][0].stringValue) {
+                    monthData.append(MonthData(date: date, value: value[i][0].doubleValue))
+                }
             }
             return monthData
         }

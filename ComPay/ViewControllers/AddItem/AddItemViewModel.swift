@@ -57,7 +57,7 @@ struct AddItemViewModel: ViewModel {
                 .trackActivity(activityIndicator)
                 .asDriver(onErrorJustReturn: ())
             }
-        let date = Driver.just("22/05/2018")
+        let date = Driver.just("10/01/2017")
         let dismiss = Driver.of(submit, input.cancelTrigger)
             .merge()
             .flatMapLatest {_ in

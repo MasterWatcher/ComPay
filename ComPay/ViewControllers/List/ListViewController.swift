@@ -40,8 +40,7 @@ class ListViewController: UIViewController, BindableType {
         let output = viewModel.transform(input: input)
         output.items.drive(tableView.rx.items(cellIdentifier: "MonthCell")){ index, model, cell in
             guard let cell = cell as? MonthCell else { return }
-            cell.monthLabel.text = model.date
-            cell.totalLabel.text = "\(model.value)"
+            cell.configure(with: model)
             }
             .disposed(by: rx.disposeBag)
         output.addItem
