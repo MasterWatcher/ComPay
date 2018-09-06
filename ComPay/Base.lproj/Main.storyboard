@@ -252,6 +252,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="AUL-Zu-2J4"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="KiL-3y-nBF"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="AUL-Zu-2J4" id="pbI-1k-DmA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqJ-UY-Fde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

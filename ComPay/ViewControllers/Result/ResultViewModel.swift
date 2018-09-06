@@ -13,11 +13,11 @@ import RxCocoa
 struct ResultViewModel: ViewModel {
     
     struct Input {
-       
+        let cancelTrigger: Driver<Void>
     }
     
     struct Output {
-    
+        let dismiss: Driver<Void>
     }
     
     init(service: SheetsService, coordinator: SceneCoordinator) {
@@ -29,6 +29,10 @@ struct ResultViewModel: ViewModel {
     let coordinator: SceneCoordinator
     
     func transform(input: Input) -> Output {
-        return Output()
+        let dismiss = input.cancelTrigger
+            .flatMapLatest {_ in
+                return self.coordinator.pop().asDriver(onErrorJustReturn: ())
+        }
+        return Output(dismiss: dismiss)
     }
 }
