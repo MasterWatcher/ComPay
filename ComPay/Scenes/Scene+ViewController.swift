@@ -26,6 +26,10 @@ extension Scene {
             vc.bindViewModel(to: viewModel)
             let nc = UINavigationController(rootViewController: vc)
             return nc
+        case .result(let viewModel):
+            var vc = storyboard.instantiateViewController(withIdentifier: "Result") as! ResultViewContoller
+            vc.bindViewModel(to: viewModel)
+            return vc
         }
     }
 }

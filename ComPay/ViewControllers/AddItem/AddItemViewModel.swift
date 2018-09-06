@@ -26,6 +26,7 @@ struct AddItemViewModel: ViewModel {
         let isLoading: Driver<Bool>
         let submitEnabled: Driver<Bool>
         let dismiss: Driver<Void>
+        let submit: Driver<Void>
     }
     
     let service: SheetsService
@@ -57,12 +58,17 @@ struct AddItemViewModel: ViewModel {
                 .trackActivity(activityIndicator)
                 .asDriver(onErrorJustReturn: ())
             }
-        let date = Driver.just("10/01/2017")
-        let dismiss = Driver.of(submit, input.cancelTrigger)
-            .merge()
+            .do(onNext: {
+                let resultViewModel = ResultViewModel(service: self.service, coordinator: self.coordinator)
+                self.coordinator.transition(to: Scene.result(resultViewModel), type: .push)
+            })
+        
+        let date = Driver.just("10/01/2018")
+        let dismiss = input.cancelTrigger
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
         }
-        return Output(date: date, isLoading: isLoading, submitEnabled: submitEnabled, dismiss: dismiss)
+        
+        return Output(date: date, isLoading: isLoading, submitEnabled: submitEnabled, dismiss: dismiss, submit: submit)
     }
 }

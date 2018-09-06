@@ -151,11 +151,111 @@
                         <outlet property="electricityTextField" destination="b5e-QM-hAw" id="ZW0-8Z-LfF"/>
                         <outlet property="hotWaterTextField" destination="Qok-4r-8hD" id="1fl-BI-tev"/>
                         <outlet property="submitButton" destination="zRg-YX-9Vb" id="0Ly-Km-pLv"/>
+                        <segue destination="B7k-fp-WeV" kind="show" id="sxc-PB-9Kd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIc-Oo-Hu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="43"/>
+            <point key="canvasLocation" x="2104.8000000000002" y="27.436281859070466"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="xQW-0C-fZk">
+            <objects>
+                <viewController storyboardIdentifier="Result" id="B7k-fp-WeV" customClass="ResultViewContoller" customModule="ComPay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kpu-ij-Gr8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ay-qWC">
+                                <rect key="frame" x="16" y="80" width="343" height="173.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-oc-gZR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hot Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwc-2J-bxN">
+                                                <rect key="frame" x="0.0" y="0.0" width="293.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x65-ZN-EJ8">
+                                                <rect key="frame" x="293.5" y="0.0" width="49.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wt6-tx-sLq">
+                                        <rect key="frame" x="0.0" y="39" width="343" height="23"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cold Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obg-xe-diI">
+                                                <rect key="frame" x="0.0" y="0.0" width="293.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkA-Ie-EKH">
+                                                <rect key="frame" x="293.5" y="0.0" width="49.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehW-nh-U0F">
+                                        <rect key="frame" x="0.0" y="78" width="343" height="23"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Electricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdp-6v-ptC">
+                                                <rect key="frame" x="0.0" y="0.0" width="293.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rD-FA-m4M">
+                                                <rect key="frame" x="293.5" y="0.0" width="49.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-Nb-NVe">
+                                        <rect key="frame" x="0.0" y="117" width="343" height="56.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vf-uy-iyK" userLabel="Total">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYm-Vs-Vgj">
+                                                <rect key="frame" x="0.0" y="20.5" width="343" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rQ9-ay-qWC" firstAttribute="top" secondItem="pyX-gH-AXI" secondAttribute="top" constant="16" id="7Hl-Yf-ANj"/>
+                            <constraint firstItem="pyX-gH-AXI" firstAttribute="trailing" secondItem="rQ9-ay-qWC" secondAttribute="trailing" constant="16" id="8Lx-v5-5uS"/>
+                            <constraint firstItem="rQ9-ay-qWC" firstAttribute="leading" secondItem="pyX-gH-AXI" secondAttribute="leading" constant="16" id="BnX-Ht-byK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pyX-gH-AXI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Result" id="WqH-Q5-CC6">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="AUL-Zu-2J4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="KiL-3y-nBF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqJ-UY-Fde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2991.1999999999998" y="37.331334332833585"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YYO-Pu-yur">
@@ -170,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofP-gx-Y0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1382" y="-134"/>
+            <point key="canvasLocation" x="-1340" y="29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eht-lx-pQY">
@@ -189,6 +289,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbM-8c-Idg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479" y="39"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sex-dD-yvw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pN8-zC-CdU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BwU-mo-uO9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k3Z-xJ-HpV" kind="relationship" relationship="rootViewController" id="tWO-G9-7OX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="viB-Vc-kZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165.5999999999999" y="27.436281859070466"/>
         </scene>
     </scenes>
 </document>

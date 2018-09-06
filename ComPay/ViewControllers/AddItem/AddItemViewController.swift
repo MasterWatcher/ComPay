@@ -45,6 +45,9 @@ class AddItemViewController: UIViewController, BindableType {
         output.dismiss
             .drive()
             .disposed(by: rx.disposeBag)
+        output.submit
+            .drive()
+            .disposed(by: rx.disposeBag)
     }
     
     override func viewDidLoad() {

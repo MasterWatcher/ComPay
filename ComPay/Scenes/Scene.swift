@@ -12,4 +12,5 @@ enum Scene {
     case login(LoginViewModel)
     case list(ListViewModel)
     case addItem(AddItemViewModel)
+    case result(ResultViewModel)
 }

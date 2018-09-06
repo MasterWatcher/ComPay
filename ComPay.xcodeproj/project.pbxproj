@@ -37,6 +37,8 @@
 		3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */; };
 		3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */; };
 		3A41423B2015005A00CC9FBC /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41423A2015005A00CC9FBC /* BindableType.swift */; };
+		3A9B1D2F21419C7900796412 /* ResultViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9B1D2E21419C7900796412 /* ResultViewContoller.swift */; };
+		3A9B1D3121419C8B00796412 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9B1D3021419C8B00796412 /* ResultViewModel.swift */; };
 		72CE874CF830F174BE46F61E /* Pods_ComPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959747CE1E231E3D85A106F /* Pods_ComPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		3A4142362014FF6A00CC9FBC /* SceneCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorImpl.swift; sourceTree = "<group>"; };
 		3A4142382014FFBA00CC9FBC /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
 		3A41423A2015005A00CC9FBC /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		3A9B1D2E21419C7900796412 /* ResultViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewContoller.swift; sourceTree = "<group>"; };
+		3A9B1D3021419C8B00796412 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		70DF8CE1C20F6C24D52FAB99 /* Pods-ComPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComPay/Pods-ComPay.release.xcconfig"; sourceTree = "<group>"; };
 		7959747CE1E231E3D85A106F /* Pods_ComPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -260,6 +264,7 @@
 				3A16BF71212C8BB400F7E568 /* Login */,
 				3A16BF6B212C8BB300F7E568 /* List */,
 				3A16BF6E212C8BB400F7E568 /* AddItem */,
+				3A9B1D2D21419C5500796412 /* Result */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +280,15 @@
 				3A41423A2015005A00CC9FBC /* BindableType.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3A9B1D2D21419C5500796412 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				3A9B1D2E21419C7900796412 /* ResultViewContoller.swift */,
+				3A9B1D3021419C8B00796412 /* ResultViewModel.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		515C0D7D2091A4ABC1D5602C /* Frameworks */ = {
@@ -511,6 +525,7 @@
 				3A1B8981211A13EC00FDDB4D /* ActivityIndicator.swift in Sources */,
 				3A16BF6A211F646C00F7E568 /* Observable+Extensions.swift in Sources */,
 				3A16BF7B212C8BCA00F7E568 /* MonthItemViewModel.swift in Sources */,
+				3A9B1D2F21419C7900796412 /* ResultViewContoller.swift in Sources */,
 				3A414229200FB46900CC9FBC /* Entry.swift in Sources */,
 				3A41422F2014FE7600CC9FBC /* Scene.swift in Sources */,
 				3A343312200BCA94005F100B /* MonthCell.swift in Sources */,
@@ -523,6 +538,7 @@
 				3A3432D420067911005F100B /* AppDelegate.swift in Sources */,
 				3A343309200B9E9F005F100B /* SheetsService.swift in Sources */,
 				3A16BF77212C8BB400F7E568 /* AddItemViewController.swift in Sources */,
+				3A9B1D3121419C8B00796412 /* ResultViewModel.swift in Sources */,
 				3A4142392014FFBA00CC9FBC /* Scene+ViewController.swift in Sources */,
 				3A16BF74212C8BB400F7E568 /* ListViewController.swift in Sources */,
 				3A4142372014FF6A00CC9FBC /* SceneCoordinatorImpl.swift in Sources */,
