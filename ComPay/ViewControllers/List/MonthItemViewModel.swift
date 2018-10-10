@@ -18,8 +18,15 @@ struct MonthItemViewModel {
         return formatter
     }()
     
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = "."
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
     init(monthData: MonthData) {
         date = dateFormatter.string(from: monthData.date)
-        value = "\(monthData.value)"
+        value = numberFormatter.string(from: monthData.value as NSNumber) ?? "0.00"
     }
 }
