@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="crT-iq-XFa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="crT-iq-XFa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJI-rW-9Gb">
-                                                    <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -166,7 +166,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ay-qWC">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-ay-qWC">
                                 <rect key="frame" x="16" y="80" width="343" height="173.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-oc-gZR">
@@ -239,21 +239,32 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-Gd-KoN">
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tUA-Gd-KoN" firstAttribute="centerX" secondItem="pyX-gH-AXI" secondAttribute="centerX" id="6Nx-49-Ue7"/>
                             <constraint firstItem="rQ9-ay-qWC" firstAttribute="top" secondItem="pyX-gH-AXI" secondAttribute="top" constant="16" id="7Hl-Yf-ANj"/>
                             <constraint firstItem="pyX-gH-AXI" firstAttribute="trailing" secondItem="rQ9-ay-qWC" secondAttribute="trailing" constant="16" id="8Lx-v5-5uS"/>
+                            <constraint firstItem="tUA-Gd-KoN" firstAttribute="centerY" secondItem="pyX-gH-AXI" secondAttribute="centerY" id="97D-Za-99B"/>
                             <constraint firstItem="rQ9-ay-qWC" firstAttribute="leading" secondItem="pyX-gH-AXI" secondAttribute="leading" constant="16" id="BnX-Ht-byK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pyX-gH-AXI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="WqH-Q5-CC6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="AUL-Zu-2J4"/>
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="AUL-Zu-2J4"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="KiL-3y-nBF"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="AUL-Zu-2J4" id="pbI-1k-DmA"/>
+                        <outlet property="coldWaterLabel" destination="HkA-Ie-EKH" id="pK3-sQ-LbA"/>
+                        <outlet property="containerView" destination="rQ9-ay-qWC" id="0Ic-ga-cZr"/>
+                        <outlet property="electricityLabel" destination="8rD-FA-m4M" id="5n9-ND-kT5"/>
+                        <outlet property="hotWaterLabel" destination="x65-ZN-EJ8" id="8DG-0i-xJa"/>
+                        <outlet property="indicator" destination="tUA-Gd-KoN" id="p2e-ui-VQY"/>
+                        <outlet property="totalLabel" destination="MYm-Vs-Vgj" id="GnS-gn-aEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqJ-UY-Fde" userLabel="First Responder" sceneMemberID="firstResponder"/>
