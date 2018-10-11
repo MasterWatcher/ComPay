@@ -29,8 +29,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJI-rW-9Gb">
-                                                    <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJI-rW-9Gb">
+                                                    <rect key="frame" x="16" y="11.5" width="262.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="5jF-E3-W8Y" secondAttribute="trailing" constant="16" id="N4z-3s-JKb"/>
                                                 <constraint firstItem="5jF-E3-W8Y" firstAttribute="centerY" secondItem="J64-pF-phC" secondAttribute="centerY" id="knZ-Uk-NYI"/>
                                                 <constraint firstItem="qJI-rW-9Gb" firstAttribute="centerY" secondItem="J64-pF-phC" secondAttribute="centerY" id="vSl-UT-Gbt"/>
+                                                <constraint firstItem="5jF-E3-W8Y" firstAttribute="leading" secondItem="qJI-rW-9Gb" secondAttribute="trailing" constant="16" id="zdm-dP-GPf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -125,7 +126,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-SF-Qvf">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-SF-Qvf">
                                 <rect key="frame" x="26" y="276" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -151,7 +152,7 @@
                         <outlet property="electricityTextField" destination="b5e-QM-hAw" id="ZW0-8Z-LfF"/>
                         <outlet property="hotWaterTextField" destination="Qok-4r-8hD" id="1fl-BI-tev"/>
                         <outlet property="submitButton" destination="zRg-YX-9Vb" id="0Ly-Km-pLv"/>
-                        <segue destination="B7k-fp-WeV" kind="show" id="sxc-PB-9Kd"/>
+                        <segue destination="B7k-fp-WeV" kind="show" identifier="toResult" id="sxc-PB-9Kd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIc-Oo-Hu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
