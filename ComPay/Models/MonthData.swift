@@ -10,5 +10,8 @@ import Foundation
 
 struct MonthData {
     let date: Date
-    let value: Double
+    let hotWaterCost: Double
+    let coldWaterCost: Double
+    let electricityCost: Double
+    let total: Double
 }

@@ -36,7 +36,7 @@ class SheetsServiceImpl : NSObject, SheetsService {
     
     func monthData() -> Observable<[MonthData]> {
         let query = GTLRSheetsQuery_SpreadsheetsValuesBatchGet.query(withSpreadsheetId: spreadsheetId)
-        query.ranges = ["A3:A", "K3:K"]
+        query.ranges = ["A3:A", "H3:H", "I3:I", "J3:J", "K3:K"]
         
         return service.rx.request(withQuery: query).map() { [weak self] ticket, response in
             guard let data = response.json else {
@@ -45,12 +45,19 @@ class SheetsServiceImpl : NSObject, SheetsService {
             
             let json = JSON(data)
             let dateValue = json["valueRanges"][0]["values"].arrayValue
-            let value = json["valueRanges"][1]["values"].arrayValue
+            let hotWaterCost = json["valueRanges"][1]["values"].arrayValue
+            let coldWaterCost = json["valueRanges"][2]["values"].arrayValue
+            let electricityCost = json["valueRanges"][3]["values"].arrayValue
+            let total = json["valueRanges"][4]["values"].arrayValue
             
             var monthData = [MonthData]()
             for i in 0..<dateValue.count {
                 if let date = self?.dateFormatter.date(from: dateValue[i][0].stringValue) {
-                    monthData.append(MonthData(date: date, value: value[i][0].doubleValue))
+                    monthData.append(MonthData(date: date,
+                                               hotWaterCost: hotWaterCost[i][0].doubleValue,
+                                               coldWaterCost: coldWaterCost[i][0].doubleValue,
+                                               electricityCost: electricityCost[i][0].doubleValue,
+                                               total: total[i][0].doubleValue))
                 }
             }
             return monthData

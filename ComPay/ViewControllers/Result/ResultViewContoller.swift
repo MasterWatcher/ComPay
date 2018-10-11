@@ -35,6 +35,15 @@ class ResultViewContoller: UIViewController, BindableType {
         output.isLoading
             .drive(containerView.rx.isHidden)
             .disposed(by: rx.disposeBag)
+        output.hotWater
+            .drive(hotWaterLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        output.coldWater
+            .drive(coldWaterLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        output.electricity
+            .drive(electricityLabel.rx.text)
+            .disposed(by: rx.disposeBag)
         output.total
             .drive(totalLabel.rx.text)
             .disposed(by: rx.disposeBag)

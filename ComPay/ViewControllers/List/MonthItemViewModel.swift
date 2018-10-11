@@ -27,6 +27,6 @@ struct MonthItemViewModel {
     
     init(monthData: MonthData) {
         date = dateFormatter.string(from: monthData.date)
-        value = numberFormatter.string(from: monthData.value as NSNumber) ?? "0.00"
+        value = numberFormatter.string(from: monthData.total as NSNumber) ?? "0.00"
     }
 }

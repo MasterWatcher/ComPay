@@ -19,6 +19,9 @@ struct ResultViewModel: ViewModel {
     
     struct Output {
         let isLoading: Driver<Bool>
+        let hotWater: Driver<String>
+        let coldWater: Driver<String>
+        let electricity: Driver<String>
         let total: Driver<String>
         let dismiss: Driver<Void>
     }
@@ -42,13 +45,27 @@ struct ResultViewModel: ViewModel {
                     .map { $0.last }
         }
         
+        let hotWater = lastItem
+            .map { "\($0?.hotWaterCost ?? 0)" }
+        
+        let coldWater = lastItem
+            .map { "\($0?.coldWaterCost ?? 0)" }
+        
+        let electricity = lastItem
+            .map { "\($0?.electricityCost ?? 0)" }
+        
         let total = lastItem
-            .map { "\($0?.value ?? 0)" }
+            .map { "\($0?.total ?? 0)" }
         
         let dismiss = input.cancelTrigger
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
         }
-        return Output(isLoading: isLoading, total: total, dismiss: dismiss)
+        return Output(isLoading: isLoading,
+                      hotWater: hotWater,
+                      coldWater: coldWater,
+                      electricity: electricity,
+                      total: total,
+                      dismiss: dismiss)
     }
 }
