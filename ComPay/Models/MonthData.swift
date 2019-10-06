@@ -10,6 +10,9 @@ import Foundation
 
 struct MonthData {
     let date: Date
+    let hotWaterValue: Double
+    let coldWaterValue: Double
+    let electricityValue: Double
     let hotWaterCost: Double
     let coldWaterCost: Double
     let electricityCost: Double

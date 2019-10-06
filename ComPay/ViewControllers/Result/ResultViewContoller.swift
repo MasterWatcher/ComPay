@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import MessageUI
 
 class ResultViewContoller: UIViewController, BindableType {
     
@@ -20,14 +21,15 @@ class ResultViewContoller: UIViewController, BindableType {
     @IBOutlet weak var containerView: UIStackView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+   
     var viewModel: ResultViewModel!
     
     func bindViewModel() {
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
             .mapToVoid()
             .asDriverOnErrorJustComplete()
-        let input = ResultViewModel.Input(loadDataTrigger: viewWillAppear, cancelTrigger: cancelButton.rx.tap.asDriver())
+        let input = ResultViewModel.Input(loadDataTrigger: viewWillAppear, cancelTrigger: cancelButton.rx.tap.asDriver(), shareTrigger: shareButton.rx.tap.asDriver())
         let output = viewModel.transform(input: input)
         output.isLoading
             .drive(indicator.rx.isAnimating)
@@ -50,5 +52,28 @@ class ResultViewContoller: UIViewController, BindableType {
         output.dismiss
             .drive()
             .disposed(by: rx.disposeBag)
+        output.sendSms
+            .drive(rx.sendSms)
+        .disposed(by: rx.disposeBag)
     }
+}
+
+extension Reactive where Base: ResultViewContoller {
+var sendSms: Binder<String> {
+  return Binder(self.base) { viewController, body in
+    if MFMessageComposeViewController.canSendText() {
+               let controller = MFMessageComposeViewController()
+               controller.body = body
+                controller.messageComposeDelegate = viewController
+               controller.recipients = []
+               viewController.present(controller, animated: true, completion: nil)
+           }
+    }
+  }
+}
+
+extension ResultViewContoller: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
+     }
 }

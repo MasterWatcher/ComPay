@@ -15,6 +15,7 @@ struct ResultViewModel: ViewModel {
     struct Input {
         let loadDataTrigger: Driver<Void>
         let cancelTrigger: Driver<Void>
+        let shareTrigger: Driver<Void>
     }
     
     struct Output {
@@ -24,6 +25,7 @@ struct ResultViewModel: ViewModel {
         let electricity: Driver<String>
         let total: Driver<String>
         let dismiss: Driver<Void>
+        let sendSms: Driver<String>
     }
     
     init(service: SheetsService, coordinator: SceneCoordinator) {
@@ -46,26 +48,38 @@ struct ResultViewModel: ViewModel {
         }
         
         let hotWater = lastItem
-            .map { "\($0?.hotWaterCost ?? 0)" }
+            .map { String(format: "%.02f", $0?.hotWaterCost ?? 0) }
         
         let coldWater = lastItem
-            .map { "\($0?.coldWaterCost ?? 0)" }
+            .map { String(format: "%.02f", $0?.coldWaterCost ?? 0) }
         
         let electricity = lastItem
-            .map { "\($0?.electricityCost ?? 0)" }
+            .map {  String(format: "%.02f", $0?.electricityCost ?? 0) }
         
         let total = lastItem
-            .map { "\($0?.total ?? 0)" }
+            .map { String(format: "%.02f", $0?.total ?? 0) }
         
         let dismiss = input.cancelTrigger
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
         }
+        
+        let sendSms = input.shareTrigger
+            .withLatestFrom(lastItem)
+            .map { item -> String in
+            var result = "Показания счетчиков:\n"
+                result += String(format: "Горячая вода: %.03f\n", item?.hotWaterValue ?? 0)
+                result += String(format: "Холодная вода: %.03f\n", item?.coldWaterValue ?? 0)
+                result += String(format: "Электричество: %.01f\n", item?.electricityValue ?? 0)
+            return result
+        }
+        
         return Output(isLoading: isLoading,
                       hotWater: hotWater,
                       coldWater: coldWater,
                       electricity: electricity,
                       total: total,
-                      dismiss: dismiss)
+                      dismiss: dismiss,
+                      sendSms: sendSms)
     }
 }

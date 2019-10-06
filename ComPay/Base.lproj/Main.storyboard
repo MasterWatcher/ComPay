@@ -238,7 +238,7 @@
                                 <rect key="frame" x="177.5" y="345.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tUA-Gd-KoN" firstAttribute="centerX" secondItem="pyX-gH-AXI" secondAttribute="centerX" id="6Nx-49-Ue7"/>
                             <constraint firstItem="rQ9-ay-qWC" firstAttribute="top" secondItem="pyX-gH-AXI" secondAttribute="top" constant="16" id="7Hl-Yf-ANj"/>
@@ -259,6 +259,7 @@
                         <outlet property="electricityLabel" destination="8rD-FA-m4M" id="5n9-ND-kT5"/>
                         <outlet property="hotWaterLabel" destination="x65-ZN-EJ8" id="8DG-0i-xJa"/>
                         <outlet property="indicator" destination="tUA-Gd-KoN" id="p2e-ui-VQY"/>
+                        <outlet property="shareButton" destination="KiL-3y-nBF" id="EN9-73-eP6"/>
                         <outlet property="totalLabel" destination="MYm-Vs-Vgj" id="GnS-gn-aEa"/>
                     </connections>
                 </viewController>

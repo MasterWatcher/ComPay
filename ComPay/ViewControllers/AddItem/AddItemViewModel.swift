@@ -51,7 +51,10 @@ struct AddItemViewModel: ViewModel {
             .withLatestFrom(counterReadings)
             .map { (arg) -> Entry in
                 let (coldWater, hotWater, electricity, date) = arg
-                return Entry(hotWater: Double(hotWater)!, coldWater: Double(coldWater)!, electricity: Double(electricity)!, date: date)
+                return Entry(hotWater: Double(hotWater)!,
+                             coldWater: Double(coldWater)!,
+                             electricity: Double(electricity)!,
+                             date: date)
             }
             .flatMapLatest { entry in
                 return self.service.create(entry: entry)
