@@ -56,8 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         sceneCoordinator.transition(to: firstScene, type: .root)
     }
     
-    
-    
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,
