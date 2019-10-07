@@ -66,7 +66,13 @@ struct AddItemViewModel: ViewModel {
                 self.coordinator.transition(to: Scene.result(resultViewModel), type: .push)
             })
         
-        let date = Driver.just("10/01/2018")
+        let formatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            return formatter
+        }()
+        
+        let date = Driver.just(formatter.string(from: Date()))
         let dismiss = input.cancelTrigger
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
