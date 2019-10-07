@@ -31,6 +31,11 @@ struct AddItemViewModel: ViewModel {
     
     let service: SheetsService
     let coordinator: SceneCoordinator
+    let dateFormatter: DateFormatter = {
+               let formatter = DateFormatter()
+               formatter.dateFormat = "dd/MM/yyyy"
+               return formatter
+           }()
     
     init(service: SheetsService, coordinator: SceneCoordinator) {
         self.service = service
@@ -51,9 +56,9 @@ struct AddItemViewModel: ViewModel {
             .withLatestFrom(counterReadings)
             .map { (arg) -> Entry in
                 let (coldWater, hotWater, electricity, date) = arg
-                return Entry(hotWater: Double(hotWater)!,
-                             coldWater: Double(coldWater)!,
-                             electricity: Double(electricity)!,
+                return Entry(hotWater: hotWater.doubleValue,
+                             coldWater: coldWater.doubleValue,
+                             electricity: electricity.doubleValue,
                              date: date)
             }
             .flatMapLatest { entry in
@@ -66,13 +71,7 @@ struct AddItemViewModel: ViewModel {
                 self.coordinator.transition(to: Scene.result(resultViewModel), type: .push)
             })
         
-        let formatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            return formatter
-        }()
-        
-        let date = Driver.just(formatter.string(from: Date()))
+        let date = Driver.just(dateFormatter.string(from: Date()))
         let dismiss = input.cancelTrigger
             .flatMapLatest {_ in
                 return self.coordinator.pop().asDriver(onErrorJustReturn: ())
